@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slick2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container"> <!-- slick 높이나 넓이 등 부가적인 변경을 할려면 그것을 싸고있는 부모를 수정하자 -->
+            <div class="slick">
+                <!-- 밑의 주석a 부분과 명칭이 반드시 같아야한다. -->
+                <div>
+                    <img src="https://img.megabox.co.kr/SharedImg/2022/12/19/THSeKCTyXQ3QgOM2cwSmj68IxXkAYn1F_648.jpg" alt="이미지1">
+                </div>
+                <div>
+                    <img src="https://img.megabox.co.kr/SharedImg/2022/12/19/8xdbTejjXT8CN2U9KNUtqg9JFLu79Fie_648.jpg" alt="이미지2">
+                </div>
+                <div>
+                    <img src="https://img.megabox.co.kr/SharedImg/2022/12/19/ipNV9mznaoTGHvWqUCk5qu9BUBwWHZ6i_648.jpg" alt="이미지3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> <!-- 외부에 연결된 스크립트 사이에 명령어를 넣으면 안됨 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slick') /* a */ .slick({
+                //setting - name: setting - value
+                autoplay:true,dots:true //페이지네이션,dots 라고도 한다.
+            });
+        });
+    </script>
+</body>
+
+</html>

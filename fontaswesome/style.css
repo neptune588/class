@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.section::after {
+    content: "\f21b";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+/* f12개발자모드로 쓰고자 하는 아이콘 클릭 -> before부분 눌러보면 역슬래쉬 영어
+있는데 그거 복사 -> 그 위에 i class누르고 font-family,font-weight복사 입력. */ 

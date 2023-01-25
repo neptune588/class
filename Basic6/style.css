@@ -1,0 +1,150 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.치료::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.박일수 {
+    background-color: #579BB1;
+    width: 1000px;
+    /* margin-right: auto; /* 남는 공간(쓰지 않는 공간)을 왼쪽으로 보내라 */ 
+    margin: 0 auto; /* margin-left:auto margin-right:auto 를 줄여서 이렇게 나타낼수 있다. 
+     auto의 경우는 원래 쓰는 영역만 정렬하기 떄문에 좌,우만 정렬해주고 위 아래에는 작용을 안한다. 해서 따로
+     수치를 줘야한다. 위아래에 수치를 주고싶으면
+    */
+    padding: 20px 40px; /* //상하 , 좌우 */
+    padding: 20px 40px 50px; /* 상 ,좌우, 하 */
+    padding: 10px 20px 30px 40px; /* 상 우 하 좌 */
+}
+
+.박일수 .박첫째 {
+    background-color: #E1D7C6;
+    padding: 20px;
+
+}
+
+.박일수 .박첫째 .자식 {
+    width: 49%;
+    height: 200px;
+    float: left;
+}
+
+.박일수 .박첫째 .자식.첫째자식1 {
+    background-color: #C0DEFF;
+    margin-right: 2%; 
+    padding: 20px;
+    border: solid red 5px; /* //선까지 나의 영역 */
+    box-sizing: border-box; /* 패딩+border같은것들이 나의 영역 이상으로 되면서 적용되는것인데
+    box-sizing border-box를 사용하면 나의 영역 내에서 적절하게 조절되어서 효과들이 적용된다. */
+    /* 즉 box-sizing: bordre-box --> width+padding+border를 영역안으로 포함시킨다.  */
+}
+
+.박일수 .박첫째 .자식.첫째자식2 {
+    background-color: #CEEDC7;
+}
+
+.박일수 .박첫째 .자식.첫째자식2 object {
+    width: 100%;
+    height: 100%;
+}
+
+.박일수 .박둘째 {
+    background-color: #FFEBB7;
+    padding: 20px;
+    /* margin: 30px 0 0;  상 30 좌우 0 하 0 */
+    margin-top: 30px;
+}
+
+.박일수 .박둘째>div {
+    background-color: #FED049;
+    /* 띄워쓰기 --> 자손
+         >  --> 바로 밑의 자식 */
+    width: 23.5%;
+    float: left;
+    height: 100px;
+    margin-right: 2%;
+}
+
+
+
+.박일수 .박둘째>div.둘자식1 {
+    background-image: url(img.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 130px 40px; /* 첫번째값은 x축 두번째값은 y축 */
+    transition: 0.3s;
+}
+
+.박일수 .박둘째>div.둘자식1:hover {
+    background-size: 100px;
+    background-position: center center /* x,y축이든 center로 맞춘다는 뜻 */
+}
+
+.박일수 .박둘째>div.둘자식2 {
+    background: #FFB26B url(img2.png) no-repeat 60px 0px/100px;  /* 컬러,url,repeat,사이즈 순서 */
+    transition: 0.3s; /* 시간을 주는 명령어 마우스 갖다 대서  이미지 변경될시 부드럽게 바뀐다 
+    
+    :hover에게 만약 트랜지션을 주게되면 마우스를 뗴는 순간 부드럽게 바뀌던게 바로 탁 바뀌어 버리게 된다.*/
+
+    /* 사이즈를 구별 해주기 위해 포지션값 뒤에 /을 쳐서 사이즈값 구별을 해준다. 
+    또는 background-size는 별도로 빼서 표기하는 경우도 있다. */
+}
+
+.박일수 .박둘째>div.둘자식2:hover /* hover-> 이거에 마우스를 올리면 */ {
+    background-image: url(img3.png);
+}
+
+.박일수 .박둘째>div.둘자식3 {
+    overflow: hidden; /* 영역보다 큰 자식 요소를 숨김 */
+}
+
+.박일수 .박둘째>div.둘자식3 iframe {
+    width: 100%;
+}
+
+.박일수 .박둘째>div.둘자식4 {
+    overflow: hidden;
+    margin-right: 0;
+}
+
+.박일수 .박둘째>div.둘자식4 iframe{
+    width: 100%;
+}
+
+.박일수 .박셋째 {
+    background-color: #AD8E70;
+    margin-top: 30px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px; 
+    /* line-heiht->행간 == 행과 행사이의 공간 
+     컨텐츠가 한줄일때 상하 기준으로 중간으로 맞추고싶다면 쓰면 되고
+     2줄 이상일때부터는 쓰면 안된다.
+    */
+}
+
+.박일수 .박셋째>div {
+    background-color: green;
+    width: 32%;
+    height: 200px;
+    float: left;
+    margin-right: 2%;
+}
+
+.박일수 .박셋째>div.세자식1 {
+    
+}
+.박일수 .박셋째>div.세자식2 {
+
+}
+.박일수 .박셋째>div.세자식3 {
+    margin-right: 0;
+}

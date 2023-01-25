@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clear::after {
+    content: "";
+    display:block;
+    clear: both;
+}
+
+.전체 {
+    background-color: #F1A661;
+    padding: 20px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.전체 .첫째 {
+    padding: 10px;
+    background-color: white;
+}
+
+.전체 .첫째 .wrap {
+    position: relative;
+}
+
+.전체 .첫째 .wrap .첫손 {
+    background-image: url(../img/img2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+
+.전체 .첫째손자1 {
+
+}
+
+.전체 .첫째 .wrap .첫째손자1+ .첫째손자2 /* 연습을 위해 일부러 이렇게 이름지음 */ {
+    background-image: url(../img/img3.jpg);
+    position: absolute;
+    left: 0; top: 0;
+    bottom: 0; right: 0;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.전체 .첫째 .wrap:hover .첫째손자2 {
+    opacity: 1;
+}
+

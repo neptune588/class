@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 800px;
+    margin: 0 auto;
+    background-color: pink;
+    padding: 200px 0; 
+    margin-top: 50px;
+    /* 제일 위는 margin top에 값이 들어가도 배경이 채우질 않는다.
+    컴퓨터 자체의 오류로 이럴때는 padding top으로 배경을 채워줘야 한다. */
+
+    /* 위 아래로 영역을 채울려면 padding을쓰고 거리를 띄울려면 margin을 쓰자 */
+    /* 정리하자면 병합현상이 일어날때는 부모에게 패딩을 주자. */
+    /* 병합현상이 일어나는 경우는 위 아래가 전체를 꽉 채울때 위나 아랫부분에 병합현상이 있다. */
+}
+
+.wrap>div {
+    height: 300px;
+    background-color: rgb(127, 127, 193);
+    border-top: 2px solid rgb(139, 70, 70);
+}
+
+.wrap>div+div /* div라는 형이 있는 요소들, 즉 seciton 1,2,3을 말하는것임 */ {
+    margin-top: 200px; 
+}
+
+.wrap .section2 div {
+    margin-top: 50px;
+}

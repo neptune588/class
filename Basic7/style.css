@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* reset 다 리셋 시키고 시작한다. */
+/* 폰트 크기의 기본값(디폴트값)은 16픽셀이다. */
+h1,h2,h3,h4,h5,h6 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none; /* 밑줄 */
+    color: #222; /* #234 -> 22 33 44 , # 222 -> 22 22 22 식으로 축약해서 쓴다. */
+    /* 세개 다 쌍을 이루고 있을때만 가능한것이지 두개는 쌍인데 나머지는 쌍이 아니면 축약해서 못씀
+    ex #113345 축약 x */
+}
+
+.약::after /* 바로위의 부모가 영역이 깨지기 때문에 부모뒤에 달아줘야함
+            html에도 없고 css에서 가상으로 만들어진 태그 
+            비포,애프터 앞에 :가 하나온다고 해서 틀린게 아니다*/{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.전체 {
+    background-color: #DFD3C3;
+    width: 1000px;
+    margin: 30px auto 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.전체>div + div /* + == 바로 위에 형이 있는 div를 부른다.*/ {
+    margin-top: 30px;
+}
+
+.전체 .첫째 {
+    background-color: #BAD7E9;
+    padding: 20px;
+}
+
+.전체 .첫째:hover {
+    color:green;
+}
+
+.전체 .첫째 .첫자 {
+    background-color: #EB455F;
+    width: 49%;
+    height: 200px;
+    float: left;
+}
+
+.전체 .첫째 .첫자.첫째자식1 {
+    margin-right: 2%;
+}
+
+.전체 .첫째 .첫자.첫째자식2 {
+
+}
+
+.전체 .둘째 {
+    background-color: #DBA39A;
+}
+
+.전체 .둘째 .앵커 {
+    background-color: blue;
+}
+
+.전체 .둘째 p {
+    width: 150px;
+    margin-top: 20px;
+}
+
+.전체 .둘째 p a {
+
+}
+
+.전체 .둘째 p a img {
+    width: 100%;
+}
+
+/* 인라인 요소는 공간을 인식하지 못한다. 그래서 넓이, 높이값을 주어도 적용되지 않는다.
+하지만 예외가 있다. img, button 태그는 인라인 요소이지만 넓이와 높이가 적용된다.
+
+p a img의 경우 a가 인라인 요소이기 때문에 공간을 인식하지 못해 img의 경우는 p의 넓이를 따라가게 되고
+a의 경우는 img보다 부모이기 때문에 자식의 넓이를 따라가게 된다. 즉 순서 img -> p따라 a는 img를 포함하기
+때문에 img의 크기만큼 가지게 되는것이다. 
+
+인라인 요소 안에는 인라인 요소만 들어간다. (인라인 요소안에 블럭 요소는 들어가지 않음) 블럭 요소 안에는
+인라인 요소, 블럭 요소 모두 들어감.
+
+span p (x) -> 에러가 뜨진 않지만 특별한 이유가 있지 않는 한 [하면 안되는 짓 html에서만!!]
+p span (o)
+span img (o)
+*/
+
+.전체 .셋째 {
+    background-color: #DBA39A
+}

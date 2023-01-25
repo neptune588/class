@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,ol,li {
+    list-style: none;
+}
+
+.clear::after {
+    content: "";
+    display:block;
+    clear:both;
+}
+
+#전체 {
+    background-color: #EB6440;
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+#전체 .첫째자식 {
+    background-color: #497174;
+    padding: 20px;
+}
+
+#전체 .첫째자식 .wrap {
+    position: relative;
+}
+
+#전체 .첫째자식 .첫째손자 {
+    background-color: #D6E4E5;
+    height: 200px;
+    background-image: url(../img/img1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#전체 .첫째자식 .첫손2 {
+    position: absolute; /* width 100%을 했을때 만약 부모에 패딩이 있다면 패딩을 포함한 
+    영역을 width로 보기 때문에 패딩이 없고 첫손2의 
+    부모 역할을 할수있는 wrap이라는 div class를 하나 더 만들어 주었다.
+     */
+    left: 0; top: 0;
+    width: 100%;
+    background-color: #EFF5F5;
+    opacity: 0; /* 투명도 */
+    transition: 0.3s;
+    background-image: url(../img/img2.jpg);
+}
+
+#전체 .첫째자식:hover .첫손2 {
+    opacity: 1;
+}
+
+#전체 .둘째자식 {
+    position: relative;
+    margin-top: 30px;
+    height: 200px;
+    padding: 20px;
+    background-color: #B1AFFF;
+/*  width: 500px; */
+/*  width 값을 따로 주는 경우에는 box sizing border box가 넓이에 관여를 하지만
+    따로 값을 주지 않는 경우에는 디폴트값이 box sizing border box이기 때문에
+    영향을 받지 않는다. */
+}
+
+#전체 .둘째자식 .둘째손자 {
+    position: absolute; /* absolute의 경우 
+    relative부모가 가지고 있는 padding을 포함해서 침범한다. width 100% ,height 100%로 했을 경우*/
+/*     left: 0; top: 0; */ /* 나와 부모영역의 간격 즉 left는 나와 부모의 left거리 */
+    background-color: #B8E8FC;
+   /*  width: 100%; */ /* 항상 기본값 자식은 부모의 넓이를 따라가기 때문에 (block요소) */
+   /*  height: 100%; */
+    /* 자식은 부모의 padding에 침범하지 못한다. absolute의 경우를 빼고*/
+
+    /* left 0 top 0 riht 0 bottom 0 -> width: 100%; height: 100% 라는 말과 같음. */
+    /* width: 200px;
+    height: 100px;
+    w h 값을 주게 되면 밑의 명령어가 알아서 취소가 된다. 말이 안되는 현상이기 때문에 */
+    left: 0; top: 0;
+}
+
+#전체 .둘째자식 {
+    margin-bottom: 50px; 
+    /* margin 위, 아래는 둘 중 큰 값이 들어간다. 즉 50+30이 아니라 50만 적용된다. 
+    둘다 만약 30이면 둘중 아무거나 들어간다. 30+30x 
+    그러나 양옆은 값이 더 해진다.*/
+}
+
+#전체 .셋째자식 {
+    margin-top: 30px;
+    background-color: #B6E388;
+}
+
+#전체 .셋째자식>div {
+    background-color: #D7C0AE;
+    width: 40%;
+    margin: 0 5%;
+    float: left;
+}
+
+/* ol,ul의 자식요소는 li만 들어가야한다. 무조건 */
+
+#전체 .셋째자식>div ol {
+    list-style-type: lower-greek; 
+    /*  이것들은 style 자체가 있다는 가정하에 
+    변경하는것인데 현재 style이 none이라 안됨  */
+}
+
+#전체 .셋째자식>div ul {
+    list-style-type: circle;  
+}
+
+#전체 .셋째자식>div li {
+    border: 1px solid gray;
+}
+
+#전체 .넷째자식 {
+    background-color: #3FA796;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+#전체 .넷째자식 .넷째손자 {
+    background-color: aqua;
+}
+
+#전체 .넷째자식 .넷째손자 dt {
+    background-color: rgb(140, 63, 63);
+}
+
+#전체 .넷째자식 .넷째손자 dd {
+    background-color: rgb(119, 119, 29);
+}

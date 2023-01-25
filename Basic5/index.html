@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 웹 접근을 좀 더 쉽게함. (ex lang=ko 영어가 아니라 한글로 읽음) -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부모자식관계</title>
+    <style>
+        * {
+            /*   *은 모든 요소를 뜻한다.  모든 태그에는 각각의 margin padding등이 있기 때문에 0으로 초기화를 시켜주고 작업
+            하는것이 편하다. */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 부모는 자식의 높이를 따라간다. ex 자식이 많으면 높이가 늘어난다
+        자식은 부모의 넓이를 따라간다. 다만 padding등에는 침범을 못한다 */
+        .전체 {
+            /* width: 80% 부모의 넓이의 80% 따라간다. */
+            width: 600px;
+            background-color: aqua;
+            margin: auto;
+            /* 나를 부모의 영역으로부터 가운데 정렬 */
+            text-align: center;
+            /* 글자를 가운데 정렬 */
+            padding: 20px;
+        }
+
+        .전체 {
+            border: red solid 2px;
+        }
+
+        .전체 {
+            background-color: green;
+        }
+
+        .전체 .첫째 {
+            background-color: pink;
+        }
+
+        .전체 .둘째 {
+            background-color: cornflowerblue;
+            padding: 20px;
+        }
+
+        .전체 .둘째 .둘자1 {
+            float: right;
+            /* 자식에게 float을 주면 영역이 깨져 버린다. */
+            width: 33.3333%;
+            /* 소숫점 4개 이상부터는 적용안됨  */
+            background-color: darkgoldenrod;
+        }
+
+        .전체 .둘째 .둘자2 {
+            float: right;
+            width: 33.3333%;
+            background-color: crimson;
+        }
+
+        .전체 .둘째 .둘자3 {
+            float: right;
+            width: 33.3333%;
+            background-color: darkslateblue;
+        }
+
+        .전체 .둘째 .효자 {
+            /* 부모의 영역 깨짐 방지 float에서 left,right를 주던 clear both(양쪽)을 쓰면 영역 깨짐이 방지 된다.*/
+            clear: both;
+        }
+
+        .전체 .셋째 {
+            background-color: brown;
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .전체 .셋째::after /* 최근에 생긴것 :: 예전부터있던것 : *  /* before,after 둘다 inline요소임 */{ 
+            content: ""; 
+            clear: both; /* clear: both는 block요소에서만 효능이 발휘됨. 따라서 인라인 요소를 블럭으로 바꿔줄 필요가 있다.*/
+            display: block;
+        }
+
+        .전체 .셋째 .세자1 {
+            background-color: darkblue;
+            width: 50%;
+            float: left;
+        }
+
+        .전체 .셋째 .세자1 span {
+            background-color: coral;
+        }
+
+        .전체 .셋째 .세자1 span::before {
+            /* css에서 공간을 만들수 있다. 반드시 content라는 내용과 같이 있어야 나타난다. 짝지*/
+            content: "앞";
+        }
+
+        .전체 .셋째 .세자1 span::after {
+            content: "뒤";
+        }
+
+        .전체 .셋째 .세자2 {
+            background-color: chartreuse;
+            width: 50%;
+            float: left;
+        }
+
+        .전체 .셋째 .세자2 span {
+            background-color: crimson;
+        }
+
+        /* 아래쪽에 있는 내용이 위쪽에 있는것보다 우선순위가 높다 */
+    </style>
+</head>
+
+<body>
+    <!-- 부모인 body의 넓이를 따라간다. -->
+    <div class="전체">
+        <div class="첫째">첫째</div>
+        <!-- //첫째 -->
+        <div class="둘째">
+            <div class="둘자 둘자1">둘째자식1</div>
+            <div class="둘자 둘자2">둘째자식2</div>
+            <div class="둘자 둘자3">둘째자식3</div>
+            <div class="효자"></div>
+        </div><!-- //둘째 -->
+        <div class="셋째">
+            <div class="세자 세자1"><span><!-- before위치 -->셋째<!-- after위치 --></span>자식1</div> 
+            <!-- span은 inline 요소로 넓이라는 개념 자체가 없다고 보면 된다. 일종의 글자같은 것이라 보면 됨. 
+                그리고 지금까지 자식이 부모 넓이 따라가고 이런건 넓이의 개념이 있는 block요소라 그런거 -->
+            <div class="세자 세자2"><span>셋째</span>자식2</div>
+        </div><!-- //셋째 -->
+    </div><!-- //전체 -->
+</body>
+
+</html>
